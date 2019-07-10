@@ -1,1 +1,3 @@
-export * from "./postRouter";
+import postsRouter from "./usersRouter";
+
+export { postsRouter };

@@ -6,7 +6,7 @@ export class UsersController {
       const { name } = req.body;
       const user = await UserModel.insert({ name });
 
-      res.status(201).json(user[0]);
+      res.status(201).json(user);
     } catch(error) {
       res.status(500).json({
         error: 'user could not be save at this time'
@@ -17,10 +17,10 @@ export class UsersController {
   static async updateUser(req, res) {
     try {
       const { name } = req.body;
-      await UserModel.update(req.user.id, name);
+      await UserModel.update(req.user.id, { name });
       const user = await UserModel.getById(req.user.id);
 
-      res.status(200).json(user[0]);
+      res.status(200).json(user);
     } catch(error) {
       res.status(500).json({
         error: 'user could not be modify at this time'
@@ -56,9 +56,9 @@ export class UsersController {
 
   static async getUserById(req, res) {
     try {
-      const user = await UserModel.get(req.user.id);
+      const user = await UserModel.getById(req.user.id);
 
-      res.status(200).json(user[0]);
+      res.status(200).json(user);
     } catch(error) {
       res.status(500).json({
         error: 'user with the specified ID, could not be fetch at this time'
