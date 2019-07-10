@@ -2,15 +2,15 @@ import express from 'express';
 import { Validator } from '../helper';
 import { UsersController } from '../controller';
 
-const postsRouter = express.Router();
+const usersRouter = express.Router();
 
-postsRouter.get('/', UsersController.getUsers);
-postsRouter.post('/', Validator.validateUser, UsersController.insertUser);
-postsRouter.post('/:id/posts', Validator.validateUserId, Validator.validatePost, UsersController.insertUserPost);
+usersRouter.get('/', UsersController.getUsers);
+usersRouter.post('/', Validator.validateUser, UsersController.insertUser);
+usersRouter.post('/:id/posts', Validator.validateUserId, Validator.validatePost, UsersController.insertUserPost);
 
-postsRouter.get('/:id', Validator.validateUserId, UsersController.getUserById);
-postsRouter.get('/:id/posts', Validator.validateUserId, UsersController.getUserPosts);
-postsRouter.delete('/:id', Validator.validateUserId, UsersController.removeUser);
-postsRouter.put('/:id', Validator.validateUserId, Validator.validateUser, UsersController.updateUser);
+usersRouter.get('/:id', Validator.validateUserId, UsersController.getUserById);
+usersRouter.get('/:id/posts', Validator.validateUserId, UsersController.getUserPosts);
+usersRouter.delete('/:id', Validator.validateUserId, UsersController.removeUser);
+usersRouter.put('/:id', Validator.validateUserId, Validator.validateUser, UsersController.updateUser);
 
-export default postsRouter;
+export default usersRouter;

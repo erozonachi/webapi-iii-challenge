@@ -1,3 +1,4 @@
-import postsRouter from "./usersRouter";
+import usersRouter from './usersRouter';
+import postsRouter from './postsRouter';
 
-export { postsRouter };
+export { usersRouter, postsRouter };
