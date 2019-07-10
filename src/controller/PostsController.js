@@ -14,4 +14,18 @@ export class PostsController {
       });
     }
   }
+
+  static async removePost(req, res) {
+    try {
+      await PostModel.remove(req.post.id);
+
+      res.status(200).json({
+        message: 'Successful removal of post'
+      });
+    } catch(error) {
+      res.status(500).json({
+        error: 'post could not be remove at this time'
+      });
+    }
+  }
 }
