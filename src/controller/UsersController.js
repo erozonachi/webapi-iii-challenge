@@ -65,4 +65,16 @@ export class UsersController {
       });
     }
   }
+
+  static async getUserPosts(req, res) {
+    try {
+      const posts = await UserModel.getUserPosts(req.user.id);
+
+      res.status(200).json(posts);
+    } catch(error) {
+      res.status(500).json({
+        error: 'posts for the user with specified ID, could not be fetch at this time'
+      });
+    }
+  }
 }
