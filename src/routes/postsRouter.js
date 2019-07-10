@@ -8,9 +8,7 @@ postsRouter.get('/', (req, res) => {
 
 });
 
-postsRouter.get('/:id', (req, res) => {
-
-});
+postsRouter.get('/:id', Validator.validatePostId, PostsController.getPostById);
 
 postsRouter.delete('/:id', Validator.validatePostId, PostsController.removePost);
 
