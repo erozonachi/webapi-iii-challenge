@@ -1,5 +1,6 @@
 import express from 'express';
 import helmet from 'helmet';
+import cors from 'cors';
 import { logger } from './helper';
 import { usersRouter, postsRouter }  from './routes';
 
@@ -7,6 +8,7 @@ const server = express();
 const port = process.env.PORT || 5000;
 
 server.use(express.json());
+server.use(cors());
 server.use(helmet());
 server.use(logger);
 
