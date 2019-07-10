@@ -1,4 +1,5 @@
 import UserModel from '../../users/userDb';
+import PostModel from '../../posts/postDb';
 
 export class UsersController {
   static async insertUser(req, res) {
@@ -10,6 +11,19 @@ export class UsersController {
     } catch(error) {
       res.status(500).json({
         error: 'user could not be save at this time'
+      });
+    }
+  }
+
+  static async insertUserPost(req, res) {
+    try {
+      const { text } = req.body;
+      const post = await PostModel.insert({ text, user_id: req.user.id });
+
+      res.status(201).json(post);
+    } catch(error) {
+      res.status(500).json({
+        error: 'post could not be save at this time'
       });
     }
   }
