@@ -41,4 +41,16 @@ export class UsersController {
       });
     }
   }
+
+  static async getUsers(req, res) {
+    try {
+      const users = await UserModel.get();
+
+      res.status(200).json(users);
+    } catch(error) {
+      res.status(500).json({
+        error: 'users could not be fetch at this time'
+      });
+    }
+  }
 }
