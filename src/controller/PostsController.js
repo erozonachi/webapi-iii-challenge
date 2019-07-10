@@ -40,4 +40,17 @@ export class PostsController {
       });
     }
   }
+
+  static async getPostById(req, res) {
+    try {
+      const post = await PostModel.getById(req.post.id);
+
+      res.status(200).json(post);
+    } catch(error) {
+      res.status(500).json({
+        error: 'user with the specified ID, could not be fetch at this time'
+      });
+    }
+  }
+
 }
