@@ -13,4 +13,18 @@ export class UsersController {
       });
     }
   }
+
+  static async updateUser(req, res) {
+    try {
+      const { name } = req.body;
+      await UserModel.update(req.user.id, name);
+      const user = await UserModel.getById(req.user.id);
+
+      res.status(200).json(user[0]);
+    } catch(error) {
+      res.status(500).json({
+        error: 'user could not be modify at this time'
+      });
+    }
+  }
 }
