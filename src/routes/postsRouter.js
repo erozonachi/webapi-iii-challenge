@@ -4,9 +4,7 @@ import { PostsController } from '../controller';
 
 const postsRouter = express.Router();
 
-postsRouter.get('/', (req, res) => {
-
-});
+postsRouter.get('/', PostsController.getPosts);
 
 postsRouter.get('/:id', Validator.validatePostId, PostsController.getPostById);
 
