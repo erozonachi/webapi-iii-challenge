@@ -4,7 +4,7 @@
   "description": "Web API Blog Project",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon babel-node ./src/index.js",
+    "server": "babel-node ./src/index.js",
     "server:prod": "node ./dist/index.js",
     "start": "node ./src/index.js",
     "dev": "NODE_ENV=development npm-run-all server",
