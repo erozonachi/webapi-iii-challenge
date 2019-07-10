@@ -65,3 +65,4 @@ dist/
 
 # VS-Code debugger
 .vscode
+.compiled

@@ -11,7 +11,8 @@
     "clean": "rimraf dist",
     "build": "babel ./src --out-dir dist",
     "prod": "NODE_ENV=production npm-run-all clean build server:prod",
-    "watch": "nodemon"
+    "watch": "nodemon",
+    "compile": "babel src --out-dir .compiled --source-maps --watch"
   },
   "repository": {
     "type": "git",
