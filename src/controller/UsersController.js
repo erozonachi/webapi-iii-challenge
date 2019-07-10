@@ -27,4 +27,18 @@ export class UsersController {
       });
     }
   }
+
+  static async removeUser(req, res) {
+    try {
+      await UserModel.remove(req.user.id);
+
+      res.status(200).json({
+        message: 'Successful removal of user'
+      });
+    } catch(error) {
+      res.status(500).json({
+        error: 'user could not be remove at this time'
+      });
+    }
+  }
 }
