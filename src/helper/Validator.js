@@ -26,4 +26,18 @@ export class Validator {
       });
     }
   }
+
+  static validateUser(req, res, next) {
+    if(!req.body) {
+      return res.status(400).json({
+        message: 'missing user data'
+      });
+    }
+    if(!req.body.name || req.body.name.trim() === '') {
+      return res.status(400).json({
+        message: 'missing required name field'
+      });
+    }
+    next();
+  }
 }
