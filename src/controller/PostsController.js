@@ -28,4 +28,16 @@ export class PostsController {
       });
     }
   }
+
+  static async getPosts(req, res) {
+    try {
+      const posts = await PostModel.get();
+
+      res.status(200).json(posts);
+    } catch(error) {
+      res.status(500).json({
+        error: 'posts could not be fetch at this time'
+      });
+    }
+  }
 }
