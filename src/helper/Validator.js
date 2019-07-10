@@ -45,7 +45,7 @@ export class Validator {
         message: 'missing post data'
       });
     }
-    if(!req.body.name || req.body.name.trim() === '') {
+    if(!req.body.text || req.body.text.trim() === '') {
       return res.status(400).json({
         message: 'missing required text field'
       });

@@ -6,6 +6,7 @@ const postsRouter = express.Router();
 
 postsRouter.get('/', UsersController.getUsers);
 postsRouter.post('/', Validator.validateUser, UsersController.insertUser);
+postsRouter.post('/:id/posts', Validator.validateUserId, Validator.validatePost, UsersController.insertUserPost);
 
 postsRouter.get('/:id', Validator.validateUserId, UsersController.getUserById);
 postsRouter.get('/:id/posts', Validator.validateUserId, UsersController.getUserPosts);
