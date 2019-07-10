@@ -1,4 +1,5 @@
 import userDb from '../../users/userDb';
+import postDb from '../../posts/postDb';
 
 export class Validator {
   static async validateUserId(req, res, next) {
@@ -13,6 +14,30 @@ export class Validator {
         } else {
           res.status(400).json({
             message: 'invalid user id'
+          });
+        }
+        return;
+      }
+      next();
+    } catch(error) {
+      res.status(500).json({
+        error: 'Request could not be completed at this time, try again'
+      });
+    }
+  }
+
+  static async validatePostId(req, res, next) {
+    try {
+      const { id } = req.params;
+      if(id) {
+        const post = await postDb.getById(id);
+  
+        if(post && post.text) {
+          req.post = post;
+          next();
+        } else {
+          res.status(400).json({
+            message: 'invalid post id'
           });
         }
         return;
