@@ -53,4 +53,16 @@ export class UsersController {
       });
     }
   }
+
+  static async getUserById(req, res) {
+    try {
+      const user = await UserModel.get(req.user.id);
+
+      res.status(200).json(user[0]);
+    } catch(error) {
+      res.status(500).json({
+        error: 'user with the specified ID, could not be fetch at this time'
+      });
+    }
+  }
 }
