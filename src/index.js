@@ -1,8 +1,11 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import { logger } from './helper';
 import { usersRouter, postsRouter }  from './routes';
+
+dotenv.config();
 
 const server = express();
 const port = process.env.PORT || 5000;
