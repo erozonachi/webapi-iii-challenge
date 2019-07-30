@@ -4,7 +4,15 @@
   "description": "Web API Blog Project",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "server": "babel-node ./src/index.js",
+    "server:prod": "node ./dist/index.js",
+    "start": "node ./dist/index.js",
+    "dev": "NODE_ENV=development npm-run-all server",
+    "clean": "rimraf dist",
+    "build": "babel ./src --out-dir dist",
+    "prod": "NODE_ENV=production npm-run-all clean build server:prod",
+    "watch": "nodemon",
+    "compile": "babel src --out-dir .compiled --source-maps --watch"
   },
   "repository": {
     "type": "git",
@@ -23,12 +31,30 @@
   },
   "homepage": "https://github.com/LambdaSchool/Node-Blog#readme",
   "dependencies": {
+    "@babel/runtime": "^7.5.4",
+    "babel-runtime": "^6.26.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "express": "^4.16.4",
+    "helmet": "^3.18.0",
     "knex": "^0.16.3",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^2.6.3",
     "sqlite3": "^4.0.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "knex-cleaner": "^1.1.4",
+    "morgan": "^1.9.1",
     "nodemon": "^1.18.10"
   }
 }

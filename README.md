@@ -10,43 +10,43 @@ You are allowed, and **encouraged**, to collaborate with other peers. Please fol
 
 ## Project Set Up
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your project manager as collaborator on Github.
-- [ ] Clone your OWN version of the repository.
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Add your project manager as collaborator on Github.
+- [x] Clone your OWN version of the repository.
+- [x] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
-- [ ] Add your project manager as a reviewer on the pull-request
-- [ ] Your project manager will count the project as complete by merging the branch back into master.
-- [ ] Do your magic!
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repository). **Please don't merge your own pull request**
+- [x] Add your project manager as a reviewer on the pull-request
+- [x] Your project manager will count the project as complete by merging the branch back into master.
+- [x] Do your magic!
 
 ## Minimum Viable Product
 
-1. Write and implement four custom `middleware` functions, detailed below.
-1. Build an API to let clients perform CRUD operations on `users`.
-1. Add endpoints to retrieve the list of `posts` for a `user` and to store a new `post` for a `user`.
+1. [x] Write and implement four custom `middleware` functions, detailed below.
+1. [x] Build an API to let clients perform CRUD operations on `users`.
+1. [x] Add endpoints to retrieve the list of `posts` for a `user` and to store a new `post` for a `user`.
 
 #### Custom Middleware Requirements
 
-- `logger()`
+- [x] `logger()`
   - `logger` logs to the console the following information about each request: request method, request url, and a timestamp
   - this middleware runs on every request made to the API
 
-- `validateUserId()`
+- [x] `validateUserId()`
   - `validateUserId` validates the user id on every request that expects a user id parameter
   - if the `id` parameter is valid, store that user object as `req.user`
   - if the `id` parameter does not match any user id in the database, cancel the request and respond with status `400` and `{ message: "invalid user id" }`
 
-- `validateUser()`
+- [x] `validateUser()`
   - `validateUser` validates the `body` on a request to create a new user
   - if the request `body` is missing, cancel the request and respond with status `400` and `{ message: "missing user data" }`
   - if the request `body` is missing the required `name` field, cancel the request and respond with status `400` and `{ message: "missing required name field" }`
 
-- `validatePost()`
+- [x] `validatePost()`
   - `validatePost` validates the `body` on a request to create a new post
   - if the request `body` is missing, cancel the request and respond with status `400` and `{ message: "missing post data" }`
   - if the request `body` is missing the required `text` field, cancel the request and respond with status `400` and `{ message: "missing required text field" }`
@@ -88,8 +88,8 @@ We have provided test data for the resources.
 
 ## Stretch Goals
 
-- Add the Post Router
-  - Implement all endpoints and middleware within `posts/postRouter.js`
+- [x] Add the Post Router
+  - [x] Implement all endpoints and middleware within `posts/postRouter.js`
 
 - Create a React App
   - Use `create-react-app` to create an application inside the root folder, name it `client`.
